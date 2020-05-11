@@ -1,4 +1,5 @@
 import { HandledRoute } from '@scullyio/scully';
+import { log, logError } from '@scullyio/scully/utils/log';
 import { JSDOM } from 'jsdom';
 
 import { getMimetypeFromExtension } from './helper';
@@ -10,14 +11,11 @@ export const webpImagesPlugin = async (html: string, route: HandledRoute) => {
         const doc = dom.window.document;
         const imageElements = doc.getElementsByTagName('img');
 
-        console.log('Number of images found: ' + imageElements.length);
+        log('Number of images found: ' + imageElements.length);
 
         for (const element of Array.from(imageElements)) {
             const imageRelativePath: any = element.getAttribute('src');
             const imageAlternateText: any = element.getAttribute('alt');
-            const imageParentNode = element.parentNode;
-            console.log(imageParentNode?.nodeName);
-            console.log(imageParentNode?.hasChildNodes());
             const imageExtension = imageRelativePath.substr(imageRelativePath.lastIndexOf('.'));
             const webpRelativePath = imageRelativePath.replace(imageExtension, '.webp');
 
@@ -36,18 +34,16 @@ export const webpImagesPlugin = async (html: string, route: HandledRoute) => {
             newImageElement.setAttribute('src', imageRelativePath);
             newImageElement.setAttribute('alt', imageAlternateText);
 
-            pictureElement.appendChild(newImageElement);
-
-            console.log(element.parentNode?.hasChildNodes());
+            pictureElement.appendChild(newImageElement);            
             element.parentNode?.replaceChild(pictureElement, element);
         };
 
     }
     catch (error) {
-        console.error(error);
+        logError(error);
     }
     finally {
-        console.log('Webp rendering complete.')
+        log('Webp rendering complete.')
     }
     return dom.serialize();
 }
