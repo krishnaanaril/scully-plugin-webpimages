@@ -1,0 +1,26 @@
+{
+  "name": "scully-plugin-webpimages",
+  "version": "1.0.0",
+  "description": "This is a scully plugin which converts existing jpg images to webp format and use it in the rendered output",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scully", 
+    "plugin",
+    "webp"
+  ],
+  "author": "Krishna Mohan A M",
+  "license": "MIT",
+  "dependencies": {
+    "imagemin": "^7.0.1",
+    "imagemin-webp": "^5.1.0",
+    "jsdom": "^16.2.2"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "@scullyio/scully": "latest"
+  }
+}
