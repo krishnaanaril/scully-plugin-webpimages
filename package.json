@@ -8,16 +8,19 @@
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
-    "prepare" : "npm run tsc",
-    "prepublishOnly" : "npm test && npm run lint",
+    "postversion": "git push && git push --tags",
+    "prepare": "npm run tsc",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
     "start": "node src/index.js",
     "test": "jest --config jestconfig.json",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "version": "npm run format && git add -A src"
   },
   "keywords": [
     "scully",
     "plugin",
-    "webp", 
+    "webp",
     "angular"
   ],
   "bugs": {
@@ -30,6 +33,7 @@
   "author": "Krishna Mohan A M",
   "license": "MIT",
   "dependencies": {
+    "@scullyio/scully": "latest",
     "@types/jsdom": "^16.2.1",
     "jsdom": "^16.2.2"
   },
