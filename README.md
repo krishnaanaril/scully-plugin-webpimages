@@ -1,0 +1,2 @@
+# Scully-plugin-webpimages
+## Usage
