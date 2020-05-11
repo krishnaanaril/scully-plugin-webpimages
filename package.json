@@ -1,9 +1,10 @@
 {
   "name": "scully-plugin-webpimages",
   "version": "0.0.5",
-  "description": "This is a scully plugin which converts existing jpg images to webp format and use it in the rendered output",
+  "description": "This is a scully plugin that helps you to serve webp images along with its fallback image foramt.",
   "main": "lib/index",
   "types": "lib/index",
+  "repository": "https://github.com/krishnaanaril/scully-plugin-webpimages",
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
@@ -16,9 +17,11 @@
   "keywords": [
     "scully",
     "plugin",
-    "webp"
+    "webp", 
+    "angular"
   ],
   "bugs": {
+    "url": "https://github.com/krishnaanaril/scully-plugin-webpimages/issues",
     "email": "krishnamohan.a.m@gmail.com"
   },
   "files": [
