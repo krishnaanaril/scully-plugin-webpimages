@@ -10,7 +10,7 @@ export const webpImagesPlugin = async (html: string, route: HandledRoute) => {
     const doc = dom.window.document;
     const imageElements = doc.getElementsByTagName('img');
 
-    log('Number of images found: ' + imageElements.length);
+    log(imageElements.length+'images found for'+ route.templateFile);
 
     for (const element of Array.from(imageElements)) {
       const imageRelativePath: any = element.getAttribute('src');
